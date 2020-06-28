@@ -7,8 +7,12 @@ const {nodemailer,agenda } = require( '../middlewares/config' )
 //@desc  Create Items
 //@ccess  Public
 router.post( '/createjob', ( req, res ) => {
-    const { time,emailSubject,recievingEmail, message, nameOfJob } = req.body;
+    const { time, emailSubject,
+        recievingEmail,
+        message, nameOfJob,
+        min = '30', hr="*", dayofMonth="*", dayOfWeek="*", month="*" } = req.body;
     // console.log(nameOfJob)
+    // console.log(min)
     // createJob({minute: "1 minutes", name: "Texting"})
     if ( !time || !emailSubject || !recievingEmail || !message || !nameOfJob ) {
         res.json('Please Enter all Fields')
@@ -43,11 +47,13 @@ router.post( '/createjob', ( req, res ) => {
             } )
            
         } );
-        const email = agenda.create( nameOfJob )
-        // console.log(nameOfJob)
+
+        const job = agenda.create( nameOfJob )
+        console.log(nameOfJob)
         agenda.start()
             .then( () => {
-                email.repeatEvery( `* * * ${ time } * *` ).save()
+                
+                job.repeatEvery( `${min} ${hr} ${ dayofMonth } ${month} ${dayOfWeek}` ).save()
                 res.json('Task Scheduled')
             } )
         .catch(err=> res.json(err))

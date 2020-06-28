@@ -30,7 +30,20 @@
 	    * "recievingEmail": "",
 	    * "message": "",
 	    * "emailSubject": "",
-	    * "time":, (between 1-31)
+	    * scheduled time of 
+            - 	"min": 30, (default)(0-59)
+            -    "hr":"",(0-23)
+            -    "dayofMonth":"",(1-31)
+            -    "dayOfWeek": "",(names or 0-7, 0 and 7 are sunday)
+            -    "month": ""(1-12 or names)
+
+            if you provide 2 for hr(hours)
+                30 for min
+                3 for dayOfMonth
+            The email will be sent every 2:30am on the 3rd of every month
+
+            To know more about the timing, Visit (Node cron npm page https://www.npmjs.com/package/node-cron).
+
 
 - GET /api/schedule/getAll 
     * It returns an array of all scheduled tasks

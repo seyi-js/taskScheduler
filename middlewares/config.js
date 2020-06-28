@@ -39,4 +39,4 @@ const deleteAll = () => {
 
 
 
-module.exports= {deleteAll,nodemailer,createJob, agenda}
+module.exports= {nodemailer,createJob, agenda}
