@@ -1,6 +1,6 @@
 # Task Scheduler
 
-## This used for scheduling Email newsletters;
+## This is used for scheduling Email newsletters;
 
 ### Developed With
 
