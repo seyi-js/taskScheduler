@@ -57,7 +57,7 @@ router.post( '/createjob', ( req, res ) => {
 
 })
 
-//@route POST /api/schedule/getAll
+//@route GET /api/schedule/getAll
 //@desc  get all Schedules
 //@ccess  Public
 
@@ -71,7 +71,7 @@ router.get( '/getAll', ( req, res ) => {
     } ).catch( err => console.log( err ) )
 } )
 
-//@route POST /api/schedule/update
+//@route PUT /api/schedule/update
 //@desc  update Schedule
 //@ccess  Public
 router.put( '/update', ( req, res ) => {
@@ -95,7 +95,7 @@ router.put( '/update', ( req, res ) => {
     }
 } )
 
-//@route POST /api/schedule/delete
+//@route DELETE /api/schedule/delete
 //@desc  delete Schedule
 //@ccess  Public
 
